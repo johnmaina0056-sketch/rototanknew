@@ -1,60 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROTO TANK COMPANY LIMITED</title>
 
-<title>RotoTank</title>
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-<link rel="stylesheet"
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<style>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #141a22;
+      --accent: #d4a017;
+      --accent-dark: #9c7a10;
+      --text: #f5f7fa;
+      --muted: #9aa4b2;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111827, #0b0f14);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 120px;
+    }
+
+  
+    header h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+    }
+
+    header p {
+      max-width: 650px;
+      margin: 1rem auto 0.5rem;
+      color: var(--muted);
+    }
+
+    /* CONTACT ICONS */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-icons span,
+    .contact-icons a {
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .contact-icons i {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    section h2::after {
+      content: '';
+      width: 70px;
+      height: 4px;
+      background: var(--accent);
+      display: block;
+      margin-top: 0.6rem;
+    }
+
+    /* PRODUCT CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #141a22, #0f141b);
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* PRICE LIST */
+    .price-list {
+      margin-top: 3rem;
+      max-width: 720px;
+      background: rgba(20,26,34,0.9);
+      padding: 1.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-list h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-list p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .price-grid div {
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.08);
+    }
+
+    .price-grid strong {
+      color: var(--accent);
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .gallery-item {
+      background: #0f141b;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item span {
+      display: block;
+      padding: 0.6rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: #6b7280;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* =========================
+       RESPONSIVE FIXES
+    ========================= */
+
+    @media (max-width: 1024px) {
+      header h1 {
+        font-size: 2.6rem;
+      }
+      body {
+        padding-top: 140px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+      }
+      .contact-icons {
+        gap: 0.8rem;
+        font-size: 0.85rem;
+      }
+      body {
+        padding-top: 170px;
+      }
+      section {
+        padding: 3.5rem 1.2rem;
+      }
+      section h2 {
+        font-size: 1.8rem;
+      }
+      .gallery-item img {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .contact-icons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      body {
+        padding-top: 210px;
+      }
+      .gallery-item img {
+        height: 140px;
+      }
+    }
+
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+    background:#fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:20px;
+    left:20px;
+    right:20px;
+    height:75px;
+    background:#000;
+    border-radius:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 35px;
+    z-index:999;
+}
+
+.logo img{
+    height:50px;
+}
+
+.navbar{
+    display:flex;
+    gap:35px;
+}
+
+.navbar a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#FFD400;
+}
+
+.icons{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    color:#fff;
+    font-size:20px;
+}
+
+.icons i{
+    cursor:pointer;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    opacity:0;
+    visibility:hidden;
+    transition:1s ease;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.slide::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.content h1{
+    font-size:5rem;
+    line-height:1.1;
+    font-weight:800;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.content p{
+    font-size:1.3rem;
+    margin-bottom:35px;
+    font-weight:500;
+}
+
+.content button{
+    padding:16px 40px;
+    border:none;
+    border-radius:8px;
+    background:#ff1d25;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.content button:hover{
+    background:#d6111b;
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.dots{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+    z-index:10;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#ccc;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.dot.active{
+    background:#ff1d25;
+    transform:scale(1.2);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-320px;
+    width:300px;
+    height:100%;
+    background:#fff;
+    z-index:1001;
+    transition:.4s;
+    padding:25px;
+    overflow-y:auto;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.close-btn{
+    text-align:right;
+    font-size:24px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.search-box{
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    outline:none;
+}
+
+.sidebar a{
+    display:block;
+    padding:18px 0;
+    text-decoration:none;
+    color:#333;
+    border-bottom:1px solid #eee;
+    font-weight:500;
+}
+
+.sidebar a:hover{
+    color:#ff1d25;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    z-index:1000;
+}
+
+.overlay.active{
+    display:block;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+    header{
+        left:10px;
+        right:10px;
+        top:10px;
+        padding:0 20px;
+        border-radius:15px;
+    }
+
+    .navbar{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .content h1{
+        font-size:3rem;
+    }
+
+    .content p{
+        font-size:1rem;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .logo img{
+        height:40px;
+    }
+
+    .icons{
+        gap:12px;
+        font-size:18px;
+    }
+
+    .content h1{
+        font-size:2.3rem;
+    }
+
+    .content p{
+        font-size:.95rem;
+    }
+
+    .content button{
+        padding:14px 30px;
+        font-size:16px;
+    }
+
+}
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-body{
-    font-family:Arial, sans-serif;
-    background:#f4f4f4;
-    padding-bottom:80px;
-    overflow-x:hidden;
-}
-
-header{
-    height:70px;
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:35px;
-    font-weight:bold;
-}
-
-.logo span:first-child{
-color:#2144a0;
-}
-
-.logo span:last-child{
-    color:#2144a0;
-}
 
 .icons{
     display:flex;
@@ -963,68 +1456,117 @@ font-size:20px;
         text-align:center;
     }
 }
-</style>
+
+  </style>
 </head>
+
 
 <body>
 
 <header>
 
+    <div class="logo">
+        <img src="https://rotomoulders.com/wp-content/uploads/2023/04/Roto-Logo-white-e1757766401382.png" alt="">
+    </div>
 
-<div class="logo">
-<span>ROTO</span><span>TANK</span>
-</div>
+    <nav class="navbar">
+        <a href="#">Home</a>
 
-<div class="icons">
+        <div class="dropdown">
+            <a href="#shop">Shop <i class="fa fa-chevron-down"></i></a>
+        </div>
 
+        <a href="#us">About Us</a>
+        <a href="#">Blog</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#order">Track My Order</a>
+    </nav>
 
-
-<div class="cart">
+    <div class="icons">
+       <div class="cart">
 <i class="fas fa-shopping-bag"></i>
 <span id="cartCount">0</span>
 </div>
-
-</div>
+        <i class="fa fa-bars menu-btn"></i>
+    </div>
 
 </header>
 
-<section class="hero" style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:80px 5%;
-gap:50px;
-overflow:visible;
-">
+<!-- Sidebar -->
 
-<div class="hero-text">
+<div class="sidebar">
 
-<h1>
-Itisha<br>
-RotoTank
-</h1>
+    <div class="close-btn">
+        <i class="fa fa-times"></i>
+    </div>
 
-<p style="font-size: 22px;">
-Kenya's #1 Tripple-layered Tanks
-For All Agricultural Needs,
-Big And Small.
-</p>
+    <div class="search-box">
+        <input type="text" placeholder="Search for products">
+    </div>
 
-<a href="#" class="shop-btn"
-   onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
-    SHOP NOW
-</a
+    <a href="index.html">Home</a>
+
+    <a href="#categories">Shop</a>
+
+    <a href="#us">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#">Track My Order</a>
+    <a href="#">Login / Register</a>
 
 </div>
+<div class="overlay"></div>
 
-<div class="hero-image">
+<!-- HERO -->
 
-                     <img style="width: fit-content; height: fit-content;" src="roto.jfif">
+<section class="hero">
 
-</div>
+    <div class="slide active" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmKp9MvnRh6o2Cq1KhwpNu5BQwvq94OJKx_Nto3lu-Q&s=10');">
+        <div class="overlay"></div>
+
+        <div class="content">
+            <h1>BECAUSE<br>YOUR FAMILY</h1>
+            <p>DESERVES WATER THAT'S SAFE, COOL, AND PURE</p>
+            <button onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+    Explore Products
+</button>
+        </div>
+    </div>
+
+    <div class="slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4I62GTXPTCalM00626lhGeYm3A99OjKc9nQn6F3gjdA&s=10');">
+        <div class="overlay"></div>
+
+        <div class="content">
+            <h1>QUALITY<br>YOU TRUST</h1>
+            <p>Heavy Duty Water Storage Tanks</p>
+          <button onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+    Shop Now
+</button>
+        </div>
+    </div>
+
+    <div class="slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREMxjiV7n0KKjRUj8Vtmk4eFwyoku3KQt_IUgznYdR7A&s');">
+        <div class="overlay"></div>
+
+        <div class="content">
+            <h1>SAFE WATER<br>EVERY DAY</h1>
+            <p>Built to Last. Trusted Across Africa.</p>
+           <button onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+    View Products
+</button>
+        </div>
+    </div>
+
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
 
 </section>
 
+<div id="shop">
+  
 <section id="categories" class="categories">
 
 <div class="card" onclick="showCategory('tanks')">
@@ -1058,6 +1600,7 @@ Big And Small.
 </div>
 
 </section>
+</div>
 
 <section class="category-section" id="tanks">
 
@@ -1971,7 +2514,7 @@ Order Now
 
 </div>
 
-<section class="order-section">
+<section id="order" class="order-section">
   <div class="container">
 
     <div class="section-title">
@@ -2181,13 +2724,13 @@ Order Now
 
       <div>
 
-        <div style="border-left:4px solid #f4a900;padding:15px;margin-bottom:15px;background:#fafafa;">
+        <div style="border-left:4px solid #f4a900;padding:15px;margin-bottom:15px;background:#fafafa; color: #000;">
           📞 0733 355 444
         </div>
 
        
 
-        <div style="border-left:4px solid #f4a900;padding:15px;margin-bottom:15px;background:#fafafa;">
+        <div style="border-left:4px solid #f4a900;padding:15px;margin-bottom:15px;background:#fafafa; color: #000;">
           📍 Nairobi, Kenya
         </div>
 
@@ -2233,7 +2776,7 @@ function sendToWhatsApp(e) {
 ${message}`;
 
   let whatsappURL =
-    "https://wa.me/254733554444?text=" +
+    "https://wa.me/254733355444?text=" +
     encodeURIComponent(whatsappMessage);
 
   window.open(whatsappURL, "_blank");
@@ -2254,6 +2797,7 @@ padding:80px 20px;
 }
 
 .section-title{
+  color: #000;
 text-align:center;
 margin-bottom:50px;
 }
@@ -2294,6 +2838,7 @@ gap:25px;
 .info-box{
 background:#fff;
 padding:30px;
+color: #000;
 border-radius:15px;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
@@ -2405,21 +2950,6 @@ font-size:32px;
 
 <!-- BOTTOM NAVIGATION -->
 
-<nav class="bottom-nav">
-
-<a href="#" class="active" onclick="goHome()">
-<i class="fas fa-home"></i>
-Home
-</a>
-
-
-
-<a href="#">
-<i class="fas fa-user"></i>
-Account
-</a>
-
-</nav>
 
 <script>
 
@@ -2539,7 +3069,7 @@ cartCount +
 function openWhatsapp(){
 
 window.open(
-"https://wa.me/25473355444",
+"https://wa.me/254733355444",
 "_blank"
 );
 
@@ -2559,9 +3089,9 @@ closeModal();
 };
 
 </script>
-<section class="why-RotoTank">
+<section style="color:black;" id="us" class="why-RotoTank">
 
-    <div class="tank-side">
+    <div  class="tank-side">
 
         <div class="floating-card warranty">
             <div class="icon">🛡️</div>
@@ -2685,7 +3215,7 @@ closeModal();
             📞 CALL 0733 355 444
         </a>
 
-        <a href="https://wa.me/25473355444?text=Hello%20RotoTank%2C%20I%20would%20like%20to%20make%20an%20order."
+        <a href="https://wa.me/254733355444?text=Hello%20RotoTank%2C%20I%20would%20like%20to%20make%20an%20order."
            target="_blank"
            class="whatsapp-btn">
             💬 WHATSAPP US
@@ -2697,40 +3227,363 @@ closeModal();
 </section>
   </div>
     <!-- FOOTER -->
-  <footer class="tank-footer">
+  <!-- FOOTER -->
 
-    <div class="footer-col">
-      <h4>About Us</h4>
-      <p>
-        RotoTank is manufactured in Kenya using rotational moulding and produced from high grade polyethylene.
-      </p>
-    </div>
+<footer class="footer">
 
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <a href="#">All Products</a>
-      <a href="#">Custom Products</a>
-      <a href="#">FAQs</a>
-      <a href="#">About Us</a>
-    </div>
+<div class="footer-container">
 
-    <div class="footer-col">
-      <h4>My Account</h4>
-      <a href="#">My Account</a>
-      <a href="#">Cart</a>
-      <a href="#">Checkout</a>
-    </div>
 
-    <div class="footer-col">
-      <h4>Get In Touch</h4>
-      <p>Lecol Building, Mbaraki Road</p>
-      <p>+254 73 355 444</p>
-      <p>RotoTanksplastics@gmail.com</p>
-    </div>
+<!-- COMPANY -->
 
-  </footer>
+<div class="footer-box">
+
+<img src="https://rotomoulders.com/wp-content/uploads/2023/04/Roto-Logo-white-e1757766401382.png" 
+class="footer-logo">
+
+<p>
+Roto Moulders provides reliable water storage tanks,
+agriculture products, sanitation solutions and industrial
+products across Kenya.
+</p>
+
+<div class="footer-social">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+
+</div>
+
+</div>
+
+
+
+<!-- LINKS -->
+
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<a href="#">Home</a>
+
+<a href="#shop">Shop</a>
+
+<a href="#us">About Us</a>
+
+<a href="#blog">Blog</a>
+
+<a href="#contact">Contact Us</a>
+
+<a href="#">Track My Order</a>
+
+</div>
+
+
+
+
+<!-- PRODUCTS -->
+
+<div class="footer-box">
+
+<h3>Products</h3>
+
+<a href="#shop">Water Tanks</a>
+
+<a href="#shop">Agriculture</a>
+
+<a href="#shop">Bins</a>
+
+<a href="#shop">Road Safety</a>
+
+<a href="#shop">Sanitation</a>
+
+<a href="#shop">Miscellaneous</a>
+
+</div>
+
+
+
+
+<!-- CONTACT -->
+
+<div class="footer-box">
+
+<h3>Contact</h3>
+
+
+<p>
+<i class="fas fa-phone"></i>
+0733 355 444
+</p>
+
+
+<p>
+<i class="fas fa-envelope"></i>
+info@rotomoulders.com
+</p>
+
+
+<p>
+<i class="fas fa-location-dot"></i>
+Nairobi, Kenya
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Roto Moulders. All Rights Reserved.
+</p>
+
+</div>
+
+
+</footer>
+<style>
+ .footer{
+
+background:#081529;
+
+padding:70px 5% 0;
+
+color:white;
+
+}
+
+
+
+.footer-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+gap:40px;
+
+}
+
+
+
+.footer-logo{
+
+width:170px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.footer-box p{
+
+color:#b9c2cf;
+
+line-height:1.7;
+
+}
+
+
+
+.footer-box h3{
+
+color:#f4a900;
+
+font-size:22px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.footer-box a{
+
+display:block;
+
+text-decoration:none;
+
+color:#fff;
+
+margin-bottom:15px;
+
+transition:.3s;
+
+}
+
+
+
+.footer-box a:hover{
+
+color:#f4a900;
+
+}
+
+
+
+.footer-box i{
+
+color:#f4a900;
+
+margin-right:10px;
+
+}
+
+
+
+.footer-social{
+
+display:flex;
+
+gap:12px;
+
+margin-top:20px;
+
+}
+
+
+
+.footer-social a{
+
+width:40px;
+
+height:40px;
+
+border-radius:50%;
+
+background:#f4a900;
+
+color:#081529;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.footer-social a:hover{
+
+background:white;
+
+}
+
+
+
+.footer-bottom{
+
+margin-top:50px;
+
+padding:25px 0;
+
+text-align:center;
+
+border-top:1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.footer-bottom p{
+
+color:#aaa;
+
+}
+
+
+
+@media(max-width:768px){
+
+.footer{
+
+text-align:center;
+
+}
+
+
+.footer-social{
+
+justify-content:center;
+
+}
+
+}
+</style>
 
 </section>
+
+<script>
+
+  const menuBtn = document.querySelector(".menu-btn");
+const sidebar = document.querySelector(".sidebar");
+const overlay = document.querySelector(".overlay");
+const closeBtn = document.querySelector(".close-btn");
+
+menuBtn.onclick = () => {
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+};
+
+closeBtn.onclick = closeMenu;
+overlay.onclick = closeMenu;
+
+function closeMenu(){
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+// Hero Slider
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let current = 0;
+
+function showSlide(index){
+
+    slides.forEach(slide=>slide.classList.remove("active"));
+    dots.forEach(dot=>dot.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+}
+
+function nextSlide(){
+
+    current++;
+
+    if(current>=slides.length){
+        current=0;
+    }
+
+    showSlide(current);
+
+}
+
+setInterval(nextSlide,5000);
+
+dots.forEach((dot,index)=>{
+
+    dot.onclick=()=>{
+
+        current=index;
+
+        showSlide(current);
+
+    }
+
+});
+</script>
 <!-- WATER TANK SECTION END -->
 </body>
 </html>
