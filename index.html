@@ -444,16 +444,7 @@ header{
     margin-bottom:20px;
 }
 
-.search-box{
-    margin-bottom:25px;
-}
 
-.search-box input{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    outline:none;
-}
 
 .sidebar a{
     display:block;
@@ -1500,9 +1491,7 @@ font-size:20px;
         <i class="fa fa-times"></i>
     </div>
 
-    <div class="search-box">
-        <input type="text" placeholder="Search for products">
-    </div>
+ 
 
     <a href="index.html">Home</a>
 
@@ -1521,7 +1510,7 @@ font-size:20px;
 
 <section class="hero">
 
-    <div class="slide active" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmKp9MvnRh6o2Cq1KhwpNu5BQwvq94OJKx_Nto3lu-Q&s=10');">
+    <div class="slide active" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmKp9MvnRh6o2Cq1KhwpNu5BQwvq94OJKx_Nto3lu-Q&s=10'); margin-top: -2%;">
         <div class="overlay"></div>
 
         <div class="content">
@@ -3149,7 +3138,7 @@ closeModal();
         <div class="feature">
             <div class="check">✓</div>
             <div>
-                <h4>DOUBLE-LAYER TECHNOLOGY</h4>
+                <h4>TRIPPLE-LAYER TECHNOLOGY</h4>
                 <p>Patented dual-wall construction keeps water cooler and adds structural strength.</p>
             </div>
         </div>
@@ -3512,65 +3501,72 @@ justify-content:center;
 </section>
 
 <script>
-
-  const menuBtn = document.querySelector(".menu-btn");
+const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 
+// Open menu
 menuBtn.onclick = () => {
     sidebar.classList.add("active");
     overlay.classList.add("active");
 };
 
+// Close menu
 closeBtn.onclick = closeMenu;
 overlay.onclick = closeMenu;
 
-function closeMenu(){
+function closeMenu() {
     sidebar.classList.remove("active");
     overlay.classList.remove("active");
 }
 
+// Close sidebar when any link is clicked
+const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+sidebarLinks.forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+
+// =====================
 // Hero Slider
+// =====================
 
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
 let current = 0;
 
-function showSlide(index){
-
-    slides.forEach(slide=>slide.classList.remove("active"));
-    dots.forEach(dot=>dot.classList.remove("active"));
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
 
     slides[index].classList.add("active");
     dots[index].classList.add("active");
 }
 
-function nextSlide(){
-
+function nextSlide() {
     current++;
 
-    if(current>=slides.length){
-        current=0;
+    if (current >= slides.length) {
+        current = 0;
     }
 
     showSlide(current);
-
 }
 
-setInterval(nextSlide,5000);
+// Show first slide
+showSlide(current);
 
-dots.forEach((dot,index)=>{
+// Auto slide every 5 seconds
+setInterval(nextSlide, 5000);
 
-    dot.onclick=()=>{
-
-        current=index;
-
+// Dot navigation
+dots.forEach((dot, index) => {
+    dot.onclick = () => {
+        current = index;
         showSlide(current);
-
-    }
-
+    };
 });
 </script>
 <!-- WATER TANK SECTION END -->
