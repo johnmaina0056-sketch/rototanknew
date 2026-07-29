@@ -797,21 +797,39 @@ font-weight:bold;
 background:#18337a;
 }
 
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:90px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:38px;
-color:white;
-text-decoration:none;
-z-index:100;
+.whatsapp,
+.call {
+    position: fixed;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+.whatsapp {
+    bottom: 20px;
+    background: #25D366;
+}
+
+.call {
+    bottom: 90px;
+    background: #007bff;
+}
+
+.whatsapp:hover {
+    background: #1ebe5d;
+}
+
+.call:hover {
+    background: #0056b3;
 }
 
 .bottom-nav{
@@ -2931,10 +2949,24 @@ font-size:32px;
 </style>
 
 <!-- WHATSAPP BUTTON -->
-
+<!-- WhatsApp Button -->
 <a href="#" class="whatsapp" onclick="openWhatsapp()">
-<i class="fab fa-whatsapp"></i>
+    <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- Call Button -->
+<a href="tel:+254733355444" class="call">
+    <i class="fas fa-phone-alt"></i>
+</a>
+
+<script>
+function openWhatsapp() {
+    window.open(
+        "https://wa.me/254733355444",
+        "_blank"
+    );
+}
+</script>
 
 <!-- BOTTOM NAVIGATION -->
 
