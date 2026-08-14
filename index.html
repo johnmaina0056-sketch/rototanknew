@@ -2999,79 +2999,585 @@ onclick="openProduct(
 
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" style="padding:80px 5%;background:#fff;">
+ <!-- =========================================
+     CONTACT SECTION
+========================================= -->
 
-    <div style="text-align:center;margin-bottom:50px;">
-      <span style="color:#f4a900;font-weight:bold;">GET IN TOUCH</span>
-      <h2 style="color:#081529;">CONTACT US</h2>
+<section id="contact" class="contact-section">
+
+    <div class="contact-heading">
+        <span>GET IN TOUCH</span>
+        <h2>CONTACT US</h2>
+        <p>
+            Have a question about our water tanks?
+            Contact Roto Tank Company today.
+        </p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:40px;">
 
-      <div>
+    <div class="contact-container">
 
-        <div style="border-left:4px solid #f4a900;padding:15px;margin-bottom:15px;background:#fafafa; color: #000;">
-          📞 0733 355 444
+        <!-- =================================
+             CONTACT INFORMATION
+        ================================== -->
+
+        <div class="contact-information">
+
+            <h3>Let's Talk</h3>
+
+            <p class="contact-intro">
+                Our team is ready to assist you with tank enquiries,
+                product information, orders and delivery.
+            </p>
+
+
+            <!-- PHONE -->
+
+            <div class="contact-detail">
+
+                <div class="contact-detail-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+
+                <div>
+                    <strong>Phone</strong>
+
+                    <a
+                        href="tel:+254733355444"
+                        class="contact-phone">
+                        +254 733 355 444
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="contact-detail">
+
+                <div class="contact-detail-icon">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+
+                <div>
+                    <strong>Location</strong>
+
+                    <span>
+                        Enterprise Road, Industrial Area,
+                        Nairobi, Kenya
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- LANDMARK -->
+
+            <div class="contact-detail">
+
+                <div class="contact-detail-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+
+                <div>
+                    <strong>Landmark</strong>
+
+                    <span>
+                        Near Jomo Kenyatta Foundation,
+                        opposite Road A
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- DIRECTIONS -->
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Roto+Tanks+Enterprise+Road+Industrial+Area+Nairobi"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="directions-button">
+
+                <i class="fas fa-route"></i>
+                Get Directions
+
+            </a>
+
         </div>
 
-       
 
-        <div style="border-left:4px solid #f4a900;padding:15px;margin-bottom:15px;background:#fafafa; color: #000;">
-          📍 Nairobi, Kenya
+        <!-- =================================
+             LIVE GOOGLE MAP
+        ================================== -->
+
+        <div class="contact-map">
+
+            <iframe
+                src="https://www.google.com/maps?q=Roto+Tanks,+Enterprise+Road,+Industrial+Area,+Nairobi,+Kenya&output=embed"
+                width="100%"
+                height="500"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
         </div>
 
-      </div>
-<form onsubmit="sendToWhatsApp(event)">
+    </div>
 
-  <input type="text" id="name" placeholder="Your Name"
-    style="width:100%;padding:14px;margin-bottom:15px;border:1px solid #ddd;" required>
+</section>
 
-  <input type="email" id="email" placeholder="Email Address"
-    style="width:100%;padding:14px;margin-bottom:15px;border:1px solid #ddd;" required>
 
-  <input type="tel" id="phone" placeholder="Phone Number"
-    style="width:100%;padding:14px;margin-bottom:15px;border:1px solid #ddd;" required>
+<!-- =========================================
+     CONTACT SECTION CSS
+========================================= -->
 
-  <textarea id="message" rows="5" placeholder="Your Message"
-    style="width:100%;padding:14px;margin-bottom:15px;border:1px solid #ddd;" required></textarea>
+<style>
 
-  <button type="submit"
-    style="background:#f4a900;color:#081529;border:none;padding:15px 35px;font-weight:bold;cursor:pointer;">
-    SEND MESSAGE
-  </button>
+.contact-section {
 
-</form>
+    width: 100%;
 
-<script>
-function sendToWhatsApp(e) {
-  e.preventDefault();
+    padding: 90px 5%;
 
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let phone = document.getElementById("phone").value;
-  let message = document.getElementById("message").value;
+    background: #ffffff;
 
-  let whatsappMessage =
-`*New Contact Form Submission*
-
-*Name:* ${name}
-*Email:* ${email}
-*Phone:* ${phone}
-
-*Message:*
-${message}`;
-
-  let whatsappURL =
-    "https://wa.me/254733355444?text=" +
-    encodeURIComponent(whatsappMessage);
-
-  window.open(whatsappURL, "_blank");
 }
-</script>
 
-    </div>
 
+/* =========================================
+   HEADING
+========================================= */
+
+.contact-heading {
+
+    text-align: center;
+
+    margin-bottom: 55px;
+
+}
+
+
+.contact-heading span {
+
+    display: block;
+
+    color: #f4a900;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.contact-heading h2 {
+
+    color: #081529;
+
+    font-size: 42px;
+
+    margin: 0 0 12px;
+
+}
+
+
+.contact-heading p {
+
+    color: #666;
+
+    font-size: 16px;
+
+    max-width: 650px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================
+   MAIN CONTACT GRID
+========================================= */
+
+.contact-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 45px;
+
+    align-items: stretch;
+
+}
+
+
+/* =========================================
+   CONTACT INFORMATION
+========================================= */
+
+.contact-information {
+
+    background: #081529;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    color: #ffffff;
+
+}
+
+
+.contact-information h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.contact-intro {
+
+    color: #b9c0ca;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================================
+   CONTACT DETAILS
+========================================= */
+
+.contact-detail {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+}
+
+
+.contact-detail-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    min-width: 45px;
+
+    border-radius: 50%;
+
+    background: #f4a900;
+
+    color: #081529;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+
+}
+
+
+.contact-detail strong {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.contact-detail span {
+
+    display: block;
+
+    color: #b9c0ca;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   CLICKABLE PHONE
+========================================= */
+
+.contact-phone {
+
+    color: #f4a900;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+
+}
+
+
+.contact-phone:hover {
+
+    color: #ffffff;
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   DIRECTIONS BUTTON
+========================================= */
+
+.directions-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding: 14px 24px;
+
+    background: #f4a900;
+
+    color: #081529;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    border-radius: 7px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.directions-button:hover {
+
+    background: #ffffff;
+
+    color: #081529;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================
+   MAP
+========================================= */
+
+.contact-map {
+
+    width: 100%;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #eeeeee;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+}
+
+
+.contact-map iframe {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 500px;
+
+    border: none;
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .contact-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .contact-information {
+
+        padding: 35px;
+
+    }
+
+
+    .contact-map {
+
+        min-height: 450px;
+
+    }
+
+
+    .contact-map iframe {
+
+        min-height: 450px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .contact-section {
+
+        padding: 65px 5%;
+
+    }
+
+
+    .contact-heading {
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .contact-heading h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .contact-heading p {
+
+        font-size: 14px;
+
+    }
+
+
+    .contact-information {
+
+        padding: 28px 22px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .contact-information h3 {
+
+        font-size: 24px;
+
+    }
+
+
+    .contact-detail {
+
+        gap: 12px;
+
+    }
+
+
+    .contact-detail-icon {
+
+        width: 40px;
+
+        height: 40px;
+
+        min-width: 40px;
+
+        font-size: 15px;
+
+    }
+
+
+    .contact-phone {
+
+        font-size: 15px;
+
+    }
+
+
+    .directions-button {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+    }
+
+
+    .contact-map {
+
+        min-height: 350px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .contact-map iframe {
+
+        min-height: 350px;
+
+    }
+
+}
+
+</style>
   </section>
 
 </section>
