@@ -9,12 +9,18 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
+
 /* =========================================================
    ROOT / RESET
    ========================================================= */
+
 :root {
   --navy: #081529;
   --blue: #2144a0;
@@ -711,26 +717,48 @@ a {
   justify-content: center;
 
   gap: 6px;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
 }
 
-.order-btn {
-  background: var(--blue);
 
+/* WhatsApp Order Button */
+
+.order-btn {
+  background: var(--green);
+
+  color: #fff;
+}
+
+.order-btn i {
   color: #fff;
 }
 
 .order-btn:hover {
-  background: var(--blue2);
+  background: #1ebe5d;
+
+  transform: translateY(-2px);
 }
 
+
+/* Call Button */
+
 .call-btn {
-  background: var(--red);
+  background: #2196f3;
 
   color: #fff;
 }
 
+.call-btn i {
+  color: #fff;
+}
+
 .call-btn:hover {
-  background: #c92e2b;
+  background: #1976d2;
+
+  transform: translateY(-2px);
 }
 
 
@@ -867,143 +895,8 @@ a {
   border-radius: 50%;
 
   background: #f1b122;
-}/* =========================================
-   FLOATING ACTION BUTTONS
-   ========================================= */
-
-.floating-actions {
-  position: fixed;
-
-  right: 34px;
-  bottom: 28px;
-
-  z-index: 1500;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 15px;
-
-  pointer-events: none;
 }
 
-/* Common button */
-.floating-btn {
-  width: 66px;
-  height: 66px;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff;
-
-  text-decoration: none;
-
-  border: 3px solid #fff;
-
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, .20),
-    0 14px 35px rgba(0, 0, 0, .15);
-
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
-
-  pointer-events: auto;
-}
-
-/* Make the Font Awesome icon itself large */
-.floating-btn i {
-  display: block;
-
-  font-size: 28px;
-
-  line-height: 1;
-
-  color: #fff;
-}
-
-/* Call */
-.call-btn-float {
-  background: #e53935;
-}
-
-/* WhatsApp */
-.whatsapp-btn-float {
-  background: #25d366;
-}
-
-/* Hover */
-.floating-btn:hover {
-  transform: translateY(-4px) scale(1.06);
-
-  box-shadow:
-    0 12px 25px rgba(0, 0, 0, .22),
-    0 18px 40px rgba(0, 0, 0, .18);
-}
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 800px) {
-
-  .floating-actions {
-    right: 24px;
-    bottom: 22px;
-
-    gap: 13px;
-  }
-
-  .floating-btn {
-    width: 60px;
-    height: 60px;
-  }
-
-  .floating-btn i {
-    font-size: 25px;
-  }
-}
-
-@media (max-width: 520px) {
-
-  .floating-actions {
-    right: 20px;
-    bottom: 20px;
-
-    gap: 12px;
-  }
-
-  .floating-btn {
-    width: 58px;
-    height: 58px;
-  }
-
-  .floating-btn i {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 380px) {
-
-  .floating-actions {
-    right: 16px;
-    bottom: 16px;
-  }
-
-  .floating-btn {
-    width: 54px;
-    height: 54px;
-  }
-
-  .floating-btn i {
-    font-size: 22px;
-  }
-}
 .why-copy h2 {
   font-size: clamp(2.2rem, 5vw, 4rem);
 
@@ -1506,154 +1399,105 @@ a {
 
 
 /* =========================================================
-   FLOATING WHATSAPP + CALL
-   PREMIUM VERSION
+   FLOATING CALL + WHATSAPP BUTTONS
    ========================================================= */
 
 .floating-actions {
   position: fixed;
 
-  /*
-     More space from the right edge.
-     This is intentionally larger than before.
-  */
   right: 34px;
-
-  /*
-     Gives the buttons comfortable separation
-     from the bottom edge.
-  */
   bottom: 28px;
 
   z-index: 1500;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
 
   gap: 16px;
 
-  /*
-     Prevents the buttons from touching
-     the screen edge on unusual layouts.
-  */
-  margin-right: 4px;
-
   pointer-events: none;
 }
 
-.fab {
-  width: 66px;
-  height: 66px;
+.floating-btn {
+  width: 68px;
+  height: 68px;
 
   border-radius: 50%;
 
-  display: grid;
-  place-items: center;
-
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   text-decoration: none;
 
-  font-size: 28px;
+  color: #ffffff;
 
-  /*
-     White border gives the floating buttons
-     separation from photographs/backgrounds.
-  */
-  border: 3px solid rgba(255, 255, 255, .95);
+  border: 3px solid #ffffff;
 
-  /*
-     Strong but clean shadow.
-  */
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, .18),
-    0 14px 35px rgba(0, 0, 0, .16);
+    0 8px 20px rgba(0, 0, 0, .20),
+    0 15px 35px rgba(0, 0, 0, .16);
 
   transition:
-    transform .22s ease,
-    box-shadow .22s ease;
-
-  pointer-events: auto;
+    transform .25s ease,
+    box-shadow .25s ease;
 
   position: relative;
+
+  pointer-events: auto;
 }
 
-.fab::before {
-  content: "";
+.floating-btn i {
+  display: block;
 
-  position: absolute;
+  color: #ffffff;
 
-  inset: -6px;
+  font-size: 32px;
 
-  border-radius: 50%;
+  line-height: 1;
 
-  border: 1px solid rgba(255, 255, 255, .25);
-
-  pointer-events: none;
+  transition: transform .25s ease;
 }
 
-.fab:hover {
-  transform: translateY(-4px) scale(1.06);
+
+/* Call = Blue */
+
+.call-btn-float {
+  background: #2196f3;
+
+  color: #ffffff;
+}
+
+
+/* WhatsApp = Green */
+
+.whatsapp-btn-float {
+  background: #25d366;
+
+  color: #ffffff;
+}
+
+
+/* Hover */
+
+.floating-btn:hover {
+  transform: translateY(-4px) scale(1.07);
 
   box-shadow:
-    0 12px 25px rgba(0, 0, 0, .20),
-    0 18px 40px rgba(0, 0, 0, .20);
+    0 12px 25px rgba(0, 0, 0, .22),
+    0 18px 42px rgba(0, 0, 0, .18);
 }
 
-.fab:active {
-  transform: scale(.95);
-}
-
-.fab.whatsapp {
-  background: var(--green);
-}
-
-.fab.call {
-  background: var(--red);
+.floating-btn:hover i {
+  transform: scale(1.08);
 }
 
 
-/* Optional labels */
+/* Click */
 
-.fab-label {
-  position: absolute;
-
-  right: calc(100% + 12px);
-
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  white-space: nowrap;
-
-  background: var(--navy);
-
-  color: #fff;
-
-  padding: 7px 11px;
-
-  border-radius: 7px;
-
-  font-size: .72rem;
-
-  font-weight: 700;
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  transition:
-    opacity .2s ease,
-    visibility .2s ease;
-}
-
-.fab:hover .fab-label {
-  opacity: 1;
-
-  visibility: visible;
+.floating-btn:active {
+  transform: scale(.94);
 }
 
 
@@ -1709,6 +1553,7 @@ a {
   height: 40px;
 
   display: grid;
+
   place-items: center;
 
   border: 0;
@@ -1807,6 +1652,7 @@ a {
     padding: 70px 0;
   }
 
+
   /* Header */
 
   .site-header {
@@ -1836,6 +1682,7 @@ a {
   .header-actions {
     gap: 8px;
   }
+
 
   /* Hero */
 
@@ -1877,6 +1724,7 @@ a {
     margin-bottom: 23px;
   }
 
+
   /* Categories */
 
   .category-grid {
@@ -1908,6 +1756,7 @@ a {
   .category-card h3 {
     font-size: .84rem;
   }
+
 
   /* Products */
 
@@ -1941,6 +1790,7 @@ a {
     grid-template-columns: 1fr;
   }
 
+
   /* Why */
 
   .why-grid {
@@ -1955,6 +1805,7 @@ a {
     border-radius: 22px;
   }
 
+
   /* Stats */
 
   .stats-grid {
@@ -1962,6 +1813,7 @@ a {
 
     gap: 25px 15px;
   }
+
 
   /* Industry */
 
@@ -1973,6 +1825,7 @@ a {
     margin-top: 35px;
   }
 
+
   /* Contact */
 
   .contact-grid {
@@ -1980,6 +1833,7 @@ a {
 
     gap: 22px;
   }
+
 
   /* Footer */
 
@@ -1993,20 +1847,20 @@ a {
   /* Floating buttons */
 
   .floating-actions {
-    right: 27px;
+    right: 26px;
 
     bottom: 22px;
 
     gap: 14px;
-
-    margin-right: 2px;
   }
 
-  .fab {
+  .floating-btn {
     width: 62px;
     height: 62px;
+  }
 
-    font-size: 26px;
+  .floating-btn i {
+    font-size: 29px;
   }
 }
 
@@ -2024,6 +1878,7 @@ a {
   .section {
     padding: 58px 0;
   }
+
 
   /* Header */
 
@@ -2060,6 +1915,7 @@ a {
 
     font-size: 9px;
   }
+
 
   /* Hero */
 
@@ -2113,6 +1969,7 @@ a {
     bottom: 22px;
   }
 
+
   /* Section headings */
 
   .section-head {
@@ -2126,6 +1983,7 @@ a {
   .section-head p {
     font-size: .9rem;
   }
+
 
   /* Categories */
 
@@ -2154,6 +2012,7 @@ a {
 
     line-height: 1.25;
   }
+
 
   /* Products */
 
@@ -2200,6 +2059,7 @@ a {
     min-height: 44px;
   }
 
+
   /* Why */
 
   .why-grid {
@@ -2214,30 +2074,6 @@ a {
 
   .tank-illustration {
     transform: scale(.72);
-  }
-
-  .floating {
-    padding: 9px 11px;
-
-    font-size: .68rem;
-
-    line-height: 1.2;
-
-    border-radius: 10px;
-  }
-
-  .floating i {
-    font-size: 16px;
-  }
-
-  .float-one {
-    left: 5%;
-    top: 7%;
-  }
-
-  .float-two {
-    right: 5%;
-    bottom: 7%;
   }
 
   .why-copy h2 {
@@ -2269,6 +2105,7 @@ a {
     font-size: .8rem;
   }
 
+
   /* Price */
 
   .price-actions {
@@ -2279,7 +2116,8 @@ a {
     width: 100%;
   }
 
-  /* Steps / payment */
+
+  /* Steps / Payment */
 
   .steps-grid,
   .payment-grid,
@@ -2319,6 +2157,7 @@ a {
     font-size: .86rem;
   }
 
+
   /* Stats */
 
   .stats-grid {
@@ -2335,6 +2174,7 @@ a {
     font-size: .78rem;
   }
 
+
   /* Industries */
 
   .industry-card {
@@ -2344,6 +2184,7 @@ a {
   .industry-card p {
     font-size: .82rem;
   }
+
 
   /* Contact */
 
@@ -2375,6 +2216,7 @@ a {
   .contact-form .btn {
     width: 100%;
   }
+
 
   /* Footer */
 
@@ -2408,6 +2250,7 @@ a {
     font-size: .76rem;
   }
 
+
   /* Menu */
 
   .menu-panel {
@@ -2419,6 +2262,7 @@ a {
   .menu-panel a {
     padding: 13px 0;
   }
+
 
   /* Modal */
 
@@ -2449,9 +2293,7 @@ a {
   }
 
 
-  /* =====================================================
-     FLOATING BUTTONS - MOBILE
-     ===================================================== */
+  /* Floating buttons */
 
   .floating-actions {
     right: 20px;
@@ -2459,25 +2301,17 @@ a {
     bottom: 20px;
 
     gap: 13px;
-
-    margin-right: 2px;
   }
 
-  .fab {
-    width: 58px;
-    height: 58px;
+  .floating-btn {
+    width: 59px;
+    height: 59px;
 
-    font-size: 24px;
-
-    border-width: 3px;
+    border-width: 2px;
   }
 
-  .fab::before {
-    inset: -5px;
-  }
-
-  .fab-label {
-    display: none;
+  .floating-btn i {
+    font-size: 27px;
   }
 }
 
@@ -2536,18 +2370,12 @@ a {
     transform: scale(.63);
   }
 
-  .floating {
-    font-size: .62rem;
-
-    padding: 8px 9px;
-  }
-
   .stat h3 {
     font-size: 1.7rem;
   }
 
 
-  /* Smaller but still prominent floating buttons */
+  /* Smaller floating buttons */
 
   .floating-actions {
     right: 16px;
@@ -2557,11 +2385,13 @@ a {
     gap: 11px;
   }
 
-  .fab {
-    width: 54px;
-    height: 54px;
+  .floating-btn {
+    width: 55px;
+    height: 55px;
+  }
 
-    font-size: 22px;
+  .floating-btn i {
+    font-size: 25px;
   }
 }
 
@@ -2575,7 +2405,7 @@ a {
   .category-card:hover,
   .product-card:hover,
   .btn-gold:hover,
-  .fab:hover {
+  .floating-btn:hover {
     transform: none;
   }
 
@@ -2585,8 +2415,18 @@ a {
   .call-btn,
   .cart-btn,
   .menu-btn,
-  .fab {
+  .floating-btn {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .floating-btn:hover {
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, .20),
+      0 15px 35px rgba(0, 0, 0, .16);
+  }
+
+  .floating-btn:hover i {
+    transform: none;
   }
 }
 
@@ -2612,7 +2452,9 @@ a {
 
     scroll-behavior: auto !important;
   }
-}</style>
+}
+
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -2661,10 +2503,9 @@ a {
 <div class="contact-info"><h3>Let's Talk</h3><p class="contact-intro">Our team is ready to assist you with tank enquiries, product information, orders and delivery.</p><div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><strong>Phone</strong><a href="tel:+254733355444">+254 733 355 444</a></div></div><div class="contact-detail"><div class="contact-icon"><i class="fas fa-location-dot"></i></div><div><strong>Location</strong><span>Enterprise Road, Industrial Area, Nairobi, Kenya</span></div></div><div class="contact-detail"><div class="contact-icon"><i class="fas fa-building"></i></div><div><strong>Landmark</strong><span>Near Jomo Kenyatta Foundation, opposite Road A</span></div></div><a class="btn btn-gold" style="margin-top:25px" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=-1.3147737,36.859145"><i class="fas fa-route"></i> Get Directions</a></div>
 <form class="contact-form" id="contactForm"><input id="name" type="text" placeholder="Your name" required><input id="phone" type="tel" placeholder="Phone number" required><input id="email" type="email" placeholder="Email address"><textarea id="message" placeholder="How can we help you?" required></textarea><button class="btn btn-gold" type="submit"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button><div class="form-status" id="formStatus">Your WhatsApp message is being prepared.</div></form>
 </div></div></section>
-</main>
+</main><div class="floating-actions">
 
-<div class="floating-actions">
-
+  <!-- CALL -->
   <a
     class="floating-btn call-btn-float"
     href="tel:+254733355444"
@@ -2673,11 +2514,13 @@ a {
     <i class="fas fa-phone"></i>
   </a>
 
+
+  <!-- WHATSAPP -->
   <a
     class="floating-btn whatsapp-btn-float"
     href="https://wa.me/254733355444"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
     aria-label="WhatsApp Roto Tank"
   >
     <i class="fab fa-whatsapp"></i>
