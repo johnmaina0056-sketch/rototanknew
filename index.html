@@ -15,7 +15,6 @@
 /* =========================================================
    ROOT / RESET
    ========================================================= */
-
 :root {
   --navy: #081529;
   --blue: #2144a0;
@@ -536,10 +535,6 @@ a {
   box-shadow: var(--shadow);
 }
 
-/*
-   BLUE CATEGORY ICONS
-*/
-
 .category-card i,
 .category-card .icon {
   color: var(--blue);
@@ -560,12 +555,15 @@ a {
 .category-card:hover .icon,
 .category-card.active .icon {
   color: var(--blue2);
+
   transform: scale(1.08);
 }
 
 .category-card h3 {
   font-size: .95rem;
+
   color: var(--navy);
+
   line-height: 1.3;
 }
 
@@ -717,6 +715,7 @@ a {
 
 .order-btn {
   background: var(--blue);
+
   color: #fff;
 }
 
@@ -726,6 +725,7 @@ a {
 
 .call-btn {
   background: var(--red);
+
   color: #fff;
 }
 
@@ -766,6 +766,7 @@ a {
     );
 
   display: grid;
+
   place-items: center;
 
   position: relative;
@@ -945,6 +946,7 @@ a {
   background: var(--gold);
 
   display: grid;
+
   place-items: center;
 
   font-weight: 900;
@@ -964,7 +966,7 @@ a {
 
 
 /* =========================================================
-   PRICE SECTION
+   PRICE
    ========================================================= */
 
 .price-section {
@@ -1035,6 +1037,7 @@ a {
   background: var(--gold);
 
   display: grid;
+
   place-items: center;
 
   font-size: 1.3rem;
@@ -1080,7 +1083,7 @@ a {
 
 
 /* =========================================================
-   DARK SECTION / STATS
+   DARK SECTION
    ========================================================= */
 
 .dark-section {
@@ -1153,6 +1156,7 @@ a {
   color: var(--navy);
 
   display: grid;
+
   place-items: center;
 
   margin: 0 auto 18px;
@@ -1255,6 +1259,7 @@ a {
   color: var(--navy);
 
   display: grid;
+
   place-items: center;
 }
 
@@ -1404,24 +1409,47 @@ a {
 
 
 /* =========================================================
-   FLOATING ACTION BUTTONS
+   FLOATING WHATSAPP + CALL
+   PREMIUM VERSION
    ========================================================= */
+
 .floating-actions {
   position: fixed;
 
-  right: 32px;
-  bottom: 24px;
+  /*
+     More space from the right edge.
+     This is intentionally larger than before.
+  */
+  right: 34px;
 
-  z-index: 950;
+  /*
+     Gives the buttons comfortable separation
+     from the bottom edge.
+  */
+  bottom: 28px;
+
+  z-index: 1500;
 
   display: flex;
+
   flex-direction: column;
-  gap: 14px;
+
+  align-items: center;
+
+  gap: 16px;
+
+  /*
+     Prevents the buttons from touching
+     the screen edge on unusual layouts.
+  */
+  margin-right: 4px;
+
+  pointer-events: none;
 }
 
 .fab {
-  width: 62px;
-  height: 62px;
+  width: 66px;
+  height: 66px;
 
   border-radius: 50%;
 
@@ -1432,19 +1460,54 @@ a {
 
   text-decoration: none;
 
-  font-size: 26px;
+  font-size: 28px;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .22);
+  /*
+     White border gives the floating buttons
+     separation from photographs/backgrounds.
+  */
+  border: 3px solid rgba(255, 255, 255, .95);
+
+  /*
+     Strong but clean shadow.
+  */
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, .18),
+    0 14px 35px rgba(0, 0, 0, .16);
 
   transition:
-    transform .2s ease,
-    box-shadow .2s ease;
+    transform .22s ease,
+    box-shadow .22s ease;
+
+  pointer-events: auto;
+
+  position: relative;
+}
+
+.fab::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -6px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+
+  pointer-events: none;
 }
 
 .fab:hover {
-  transform: translateY(-3px) scale(1.04);
+  transform: translateY(-4px) scale(1.06);
 
-  box-shadow: 0 14px 35px rgba(0, 0, 0, .26);
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, .20),
+    0 18px 40px rgba(0, 0, 0, .20);
+}
+
+.fab:active {
+  transform: scale(.95);
 }
 
 .fab.whatsapp {
@@ -1456,51 +1519,47 @@ a {
 }
 
 
-/* Tablet */
-@media (max-width: 800px) {
-  .floating-actions {
-    right: 24px;
-    bottom: 20px;
-    gap: 12px;
-  }
+/* Optional labels */
 
-  .fab {
-    width: 58px;
-    height: 58px;
-    font-size: 24px;
-  }
+.fab-label {
+  position: absolute;
+
+  right: calc(100% + 12px);
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  white-space: nowrap;
+
+  background: var(--navy);
+
+  color: #fff;
+
+  padding: 7px 11px;
+
+  border-radius: 7px;
+
+  font-size: .72rem;
+
+  font-weight: 700;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity .2s ease,
+    visibility .2s ease;
+}
+
+.fab:hover .fab-label {
+  opacity: 1;
+
+  visibility: visible;
 }
 
 
-/* Mobile */
-@media (max-width: 600px) {
-  .floating-actions {
-    right: 20px;
-    bottom: 18px;
-    gap: 11px;
-  }
-
-  .fab {
-    width: 56px;
-    height: 56px;
-    font-size: 23px;
-  }
-}
-
-
-/* Very small phones */
-@media (max-width: 380px) {
-  .floating-actions {
-    right: 16px;
-    bottom: 15px;
-  }
-
-  .fab {
-    width: 53px;
-    height: 53px;
-    font-size: 21px;
-  }
-}
 /* =========================================================
    MODAL
    ========================================================= */
@@ -1515,6 +1574,7 @@ a {
   display: none;
 
   align-items: center;
+
   justify-content: center;
 
   padding: 20px;
@@ -1637,7 +1697,7 @@ a {
 
 
 /* =========================================================
-   TABLET / MOBILE
+   TABLET / SMALL LAPTOP
    ========================================================= */
 
 @media (max-width: 800px) {
@@ -1806,7 +1866,7 @@ a {
     gap: 25px 15px;
   }
 
-  /* Industries */
+  /* Industry */
 
   .industry-grid {
     grid-template-columns: 1fr;
@@ -1832,27 +1892,30 @@ a {
     gap: 35px 25px;
   }
 
-  /* Floating */
+
+  /* Floating buttons */
 
   .floating-actions {
-    right: 12px;
+    right: 27px;
 
-    bottom: 14px;
+    bottom: 22px;
 
-    gap: 9px;
+    gap: 14px;
+
+    margin-right: 2px;
   }
 
   .fab {
-    width: 48px;
-    height: 48px;
+    width: 62px;
+    height: 62px;
 
-    font-size: 19px;
+    font-size: 26px;
   }
 }
 
 
 /* =========================================================
-   PHONES
+   MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -1953,7 +2016,7 @@ a {
     bottom: 22px;
   }
 
-  /* Headings */
+  /* Section headings */
 
   .section-head {
     margin-bottom: 30px;
@@ -2119,7 +2182,7 @@ a {
     width: 100%;
   }
 
-  /* Steps */
+  /* Steps / payment */
 
   .steps-grid,
   .payment-grid,
@@ -2175,7 +2238,7 @@ a {
     font-size: .78rem;
   }
 
-  /* Industry */
+  /* Industries */
 
   .industry-card {
     padding: 23px 17px;
@@ -2288,19 +2351,36 @@ a {
     font-size: .88rem;
   }
 
-  /* Floating buttons */
+
+  /* =====================================================
+     FLOATING BUTTONS - MOBILE
+     ===================================================== */
 
   .floating-actions {
-    right: 10px;
+    right: 20px;
 
-    bottom: 10px;
+    bottom: 20px;
+
+    gap: 13px;
+
+    margin-right: 2px;
   }
 
   .fab {
-    width: 46px;
-    height: 46px;
+    width: 58px;
+    height: 58px;
 
-    font-size: 18px;
+    font-size: 24px;
+
+    border-width: 3px;
+  }
+
+  .fab::before {
+    inset: -5px;
+  }
+
+  .fab-label {
+    display: none;
   }
 }
 
@@ -2368,6 +2448,24 @@ a {
   .stat h3 {
     font-size: 1.7rem;
   }
+
+
+  /* Smaller but still prominent floating buttons */
+
+  .floating-actions {
+    right: 16px;
+
+    bottom: 16px;
+
+    gap: 11px;
+  }
+
+  .fab {
+    width: 54px;
+    height: 54px;
+
+    font-size: 22px;
+  }
 }
 
 
@@ -2410,8 +2508,11 @@ a {
   *::before,
   *::after {
     animation-duration: .01ms !important;
+
     animation-iteration-count: 1 !important;
+
     transition-duration: .01ms !important;
+
     scroll-behavior: auto !important;
   }
 }</style>
